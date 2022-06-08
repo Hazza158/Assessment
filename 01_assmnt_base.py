@@ -30,11 +30,13 @@ def yes_no(question):
 played_before = yes_no("Do you want to see the instructions")
 
 def instructions():
-    print()
-    print("**** How to Play ****")
-    print()
-    print("The rules of the game go here")
-    print()
+    print("""
+        
+        ***How To Play The Game***
+
+        choose what difficulty you want to play on (easy, medium, hard)
+        
+        """)
     return "" 
 
 if played_before == "yes": 
@@ -46,7 +48,7 @@ easy_mode = 0
 medium_mode = 0
 hard_mode = 0
 
-# ask user for # of rounds, <enter> for infinite mode 
+# ask user what difficulty they want to play on, then let them choose 
 
 print()
 print("what difficulty do you want to play on?")
@@ -61,7 +63,7 @@ print()
 if choose == "1":
     print("you are now playing on easy difficulty")
 
-if choose == "2":
+elif choose == "2":
     print("you are now playing on medium difficulty")
 
 elif choose == "3":
