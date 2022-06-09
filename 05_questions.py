@@ -29,18 +29,15 @@ def choice_checker(question, valid_list, error):
         print()
 
 
-#main routine goes here
-
-
 # lists for checking responses
-rps_list = ["rock", "paper", "scissors", "xxx"]
+ask = []
 
 #loop for testing purposes
 user_choice = ""
 while user_choice != "xxx":
 
     #ask user for and check its valid
-    user_choice = choice_checker("choose rock / paper / scissors (r/p/s): ", rps_list, "please choose from rock / paper / scissors (or xxx to quit)")
+    user_choice = choice_checker("choose the highest number from a random list of 4 numbers: ", ask, "")
 
     #print out choice for comparison purposes
     print("You chose {}".format(user_choice))
