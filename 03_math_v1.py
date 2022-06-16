@@ -32,14 +32,3 @@ def easy():
       print("Incorrect")
       IncorrectAnswers += 1
    results = f="You got {str(CorrectAnswers)} answers correct and {str(IncorrectAnswers)} answers wrong."
-def medium():
-   #code
-    def hard():
-   #code
-        diff = {'easy':easy,'medium':medium,'hard':hard}
-        Difficulty = input("Enter Difficulty:")
-        for i in diff:
-            if Difficulty == diff[i]:
-                diff[i]()
-                else:
-                continue
