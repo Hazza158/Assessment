@@ -7,6 +7,9 @@ print("""
     Good luck and have fun!
 """)
 
+ask_name = input("what is your name/nickname?")
+
+print("\nHi {}, good luck!".format(ask_name))
 
 # functions go here
 def yes_no(question):
