@@ -1,15 +1,16 @@
 import random
-
-number_one = random.randint(1,100)
-number_two = random.randint(1,100)
+import math
 
 
-question = "what is {} + {}".format(number_one, number_two)
-ask = input(question)
-answer = "yes"
+end = False
+questions_asked = 0
+correct_questions = 0
 
-if ask == answer:
-    print("correct!")
-else:
-    print("wrong")
-    
+while end == False:
+    if questions_asked <= 10 | questions_asked >= 10:
+        choice = random.choice("+-")
+        number_one = random.randint(1,100)
+        number_two = random.randint(1,100)
+        print(number_one, choice, number_two)
+        answer = int(input("answer the question"))
+
