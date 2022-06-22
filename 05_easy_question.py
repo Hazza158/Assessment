@@ -7,6 +7,7 @@ questions_asked = 0
 correct_questions = 0
 incorrect_questions= 0 
 
+
 while end == False:
     if questions_asked <= 10 | questions_asked >= 10:
         choice = random.choice("+-")
@@ -20,9 +21,12 @@ while end == False:
         if answer == real_answer:
             print("correct")
         correct_questions =+ 1 
-
+        
     elif choice == "-":
         real_answer = num_1 - num_2
+        if answer == real_answer:
+            print("correct")
+        correct_questions =+ 1
 
 
 
