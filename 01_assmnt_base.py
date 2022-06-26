@@ -47,9 +47,7 @@ if played_before == "yes":
 
 
 choose_instruction = ("press <1> for easy, <2> for medium, <3> for hard")
-easy_mode = 0
-medium_mode = 0
-hard_mode = 0
+
 
 # ask user what difficulty they want to play on, then let them choose 
 
@@ -59,6 +57,7 @@ print()
 
 choose = input("{} or 'xxx' to end: ".format(choose_instruction))
 
+# tells user what difficulty they chose and are playing on 
 print()
 print("you chose {}".format(choose))
 print()
@@ -71,6 +70,38 @@ elif choose == "2":
 
 elif choose == "3":
     print("you are now playing on hard difficulty")
+
+
+end = False
+questions_asked = 0
+correct_questions = 0
+incorrect_questions= 0 
+
+
+while end == False:
+
+    # randomises 2 numbers and gives user a '+' or '-' question
+    if questions_asked <= 10 | questions_asked >= 10:
+        choice = random.choice("+-")
+        user_choice = "xxx"
+        num_1 = random.randint(1,10)
+        num_2 = random.randint(1,10)
+        print(num_1, choice, num_2)
+        answer = int(input("answer the question:"))
+    
+    # random '+' choice for the question, gives user '+' question and prints 'correct' if right
+    if choice == "+":
+        real_answer = num_1 + num_2 
+        if answer == real_answer:
+            print("correct")
+        correct_questions =+ 1 
+    
+    # random '-' choice for the question, gives user '-' question and prints 'correct' if right
+    elif choice == "-":
+        real_answer = num_1 - num_2
+        if answer == real_answer:
+            print("correct")
+        correct_questions =+ 1
 
 
 
