@@ -11,7 +11,7 @@ incorrect_questions= 0
 while end == False:
 
     # randomises 2 numbers and gives user a '+' or '-' question
-    if questions_asked <= 10 | questions_asked >= 10:
+    if questions_asked <= 10:
         choice = random.choice("+-")
         user_choice = "xxx"
         num_1 = random.randint(1,10)
@@ -24,20 +24,30 @@ while end == False:
         real_answer = num_1 + num_2 
         if answer == real_answer:
             print("correct")
-        correct_questions =+ 1 
+            correct_questions =+ 1
+        
+        else:
+            print("wrong answer, the answer was", real_answer)
+            incorrect_questions =+ 1
+        
+        questions_asked =+ 1
     
     # random '-' choice for the question, gives user '-' question and prints 'correct' if right
     elif choice == "-":
         real_answer = num_1 - num_2
         if answer == real_answer:
             print("correct")
-        correct_questions =+ 1
-
+            correct_questions =+ 1
+        
+        else:
+            print("wrong answer, the answer was", real_answer)
+            incorrect_questions =+ 1
+        
+        questions_asked =+ 1
      
-
-
-
-
+    else:
+        end = True
+        break
 
 
    
