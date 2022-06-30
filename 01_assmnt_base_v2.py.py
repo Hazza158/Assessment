@@ -122,14 +122,3 @@ while end == False:
      
 
 print("Hi", ask_name, ",  you got", correct_questions, "out of 5")
-
-
-
-
-
-
-
-
-
-
-

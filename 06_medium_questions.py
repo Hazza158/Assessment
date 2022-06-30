@@ -24,5 +24,7 @@ while end == False:
         real_answer = num_1 * num_2 
         if answer == real_answer:
             print("correct")
-        correct_questions =+ 1 
-    
+            correct_questions =+ 1 
+
+        else:
+            print("wrong answer, the real answer was", real_answer)
