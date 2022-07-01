@@ -17,23 +17,7 @@ def intcheck(question, low=None, high=None, exit_code = None):
         try:
             response = input(question)
             
-            # check to see if response is the exit code and return it
-            if response == exit_code:
-                return response
             
-            # change the response into an integer
-            else:
-                response = int(response)
-
-            # Checks response is not too low, not use of 'is not' keywords
-            if low is not None and response < low:
-                print(error)
-                continue
-
-            # Checks response is not too high
-            if high is not None and response > high:
-                print(error)
-                continue
 
             return response
 
@@ -41,7 +25,6 @@ def intcheck(question, low=None, high=None, exit_code = None):
         except ValueError:
             print(error)
             continue
-
  
  
  

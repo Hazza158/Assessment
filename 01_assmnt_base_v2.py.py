@@ -48,6 +48,49 @@ if played_before == "yes":
 
 choose_instruction = ("press <1> for easy, <2> for medium, <3> for hard")
 
+# Number checking function goes here
+def intcheck(question, num_1=None, num_2=None, exit_code = None):
+
+    while True:
+
+        # sets up error messages
+        if num_1 is not None and num_2 is not None:
+            error = "Please enter an integer between {} and {} (inclusive)".format(num_1, num_2)
+        elif num_1 is not None and num_2 is None:
+            error = "Please enter an integer that is more than or equal to {}".format(num_1, num_2)
+        elif num_1 is None and num_2 is not None:
+            error = "Please enter an integer that is less than or equal to {}".format(num_1, num_2)
+        else:
+            error = "Please enter an integer"
+
+        try:
+            response = input(question)
+            
+            # check to see if response is the exit code and return it
+            if response == exit_code:
+                return response
+            
+            # change the response into an integer
+            else:
+                response = int(response)
+
+            # Checks response is not too low, not use of 'is not' keywords
+            if num_1 is not None and response < num_1:
+                print(error)
+                continue
+
+            # Checks response is not too high
+            if num_2 is not None and response > num_2:
+                print(error)
+                continue
+
+            return response
+
+        # checks input is a integer
+        except ValueError:
+            print(error)
+            continue
+
 
 # ask user what difficulty they want to play on, then let them choose 
 
