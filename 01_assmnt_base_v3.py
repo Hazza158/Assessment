@@ -100,26 +100,7 @@ if played_before == "yes":
 
 # rounds function: asks user how many rounds they want to play 
 # (if they input anything other than an integer, prints "please enter an integer")
-def check_rounds():
 
-    while True:
-        response = input("How many rounds")
-
-        round_error = "please enter an integer"
-
-        if response != "":
-            try:
-                response = int(response)
-
-                if response < 1:
-                    print(round_error)
-                    continue
-            
-            except ValueError:
-                print(round_error)
-                continue
-
-        return response
 
 
 # main routine goes here
@@ -132,19 +113,18 @@ correct_questions = 0
 incorrect_questions= 0 
 choose_instruction = ""
 
-# ask user for # of rounds, <enter> for infinite mode 
-rounds = check_rounds()
 
 questions_wanted = intcheck("How many questions:", 1)
 
 end_quiz = "no"
 
+while questions_asked < questions_wanted:
 
-
-while questions_asked < questions_wanted and end_quiz == "no":
+    print("asked", questions_asked)
+    print("wanted", questions_wanted)
 
     # randomises 2 numbers and gives user a '+' or '-' question
-    if questions_asked <= 5:
+    if questions_asked <= 10 | questions_asked >=10:
         choice = random.choice("+-")
         num_1 = random.randint(1,10)
         num_2 = random.randint(1,10)
@@ -155,63 +135,39 @@ while questions_asked < questions_wanted and end_quiz == "no":
     if choice == "+":
         real_answer = num_1 + num_2 
         if answer == real_answer:
-            feedback = ("correct")
-            correct_questions =+ 1
+            print()
+            feedback = print(":) correct :)")
+            print()
+            correct_questions += 1
         
         else:
-            feedback = ("incorrect, the real answer was:", real_answer)
-            incorrect_questions =+ 1
+            print()
+            feedback = print(":( incorrect, the real answer was:", real_answer, ":(")
+            print()
+            incorrect_questions += 1
         
-        questions_asked =+ 1
+        questions_asked += 1
     
     # random '-' choice for the question, gives user '-' question and prints 'correct' if right, prints 'wrong answer' if incorrect
     elif choice == "-":
         real_answer = num_1 - num_2
         if answer == real_answer:
-            feedback = ("correct")
-            correct_questions =+ 1
+            print()
+            feedback = print(":) correct :)")
+            print()
+            correct_questions += 1
         
         else:
-            feedback = ("incorrect, the real answer was:", real_answer)
-            incorrect_questions =+ 1
+            print()
+            feedback = print(":( incorrect, the real answer was:", real_answer, ":(")
+            print()
+            incorrect_questions += 1
         
-        questions_asked =+ 1
-    
-    if user_choice == "xxx":
-        end = True
-        break
+        questions_asked += 1
 
 
-while end_quiz == "no":
-
-    questions_asked += 1
-
-    #rounds heading
-    print()
-    if rounds == "":
-        heading = "Continuous mode (Round {})".format(questions_wanted)
-    else:
-        heading = "Round {} of {}".format(questions_wanted, rounds)
-        
-        
-    print(heading)
-    choose = input ("{} or 'xxx' to end: ".format(choose_instruction))
-
-    # end quiz if exit code is typed 
-    if choose == "xxx":
-        break
-
-    
-
-    # rest of loop / quiz
-    print("you chose {}".format(choose))
-
-
-
-    if questions_asked == rounds:
-        break
-    
-
+# shows user what round it was that they answered the questions
+# then puts it in a list
 outcome = "Round {}: {}".format(questions_asked, feedback)
 game_summary.append(outcome)
 
