@@ -14,6 +14,8 @@ print("\nHi {}, good luck!".format(ask_name))
 # functions go here
 
 # Number checking function goes here
+user_choice = ""
+
 def intcheck(question, low=None, high=None, exit_code = None):
 
     while True:
@@ -30,6 +32,8 @@ def intcheck(question, low=None, high=None, exit_code = None):
 
         try:
             response = input(question)
+
+            
             
             # check to see if response is the exit code and return it
             if response == exit_code:
@@ -81,8 +85,6 @@ def instructions():
         
         ***How To Play The Game***
 
-        answer the randomly generated question.
-
         You will choose how many questions you want to be asked, when you have answered them all 
         
         it will show what you got wrong and what you got right. 
@@ -98,38 +100,37 @@ if played_before == "yes":
     instructions()
 
 
-# rounds function: asks user how many rounds they want to play 
-# (if they input anything other than an integer, prints "please enter an integer")
-
 
 
 # main routine goes here
 
 game_summary = []
 end = False
-user_choice = ""
 questions_asked = 0
 correct_questions = 0
 incorrect_questions= 0 
 choose_instruction = ""
 
-
+# allows user to input how many questions they want to be asked 
 questions_wanted = intcheck("How many questions:", 1)
 
 end_quiz = "no"
 
 while questions_asked < questions_wanted:
 
-    print("asked", questions_asked)
-    print("wanted", questions_wanted)
+    #print("asked", questions_asked)
+    #print("wanted", questions_wanted)
+
+    
 
     # randomises 2 numbers and gives user a '+' or '-' question
     if questions_asked <= 10 | questions_asked >=10:
         choice = random.choice("+-")
-        num_1 = random.randint(1,10)
+        num_1 = random.randint(10,20)
         num_2 = random.randint(1,10)
         print(num_1, choice, num_2)
         answer = intcheck("answer the question:")
+
     
     # random '+' choice for the question, gives user '+' question and prints 'correct' if right, prints 'wrong answer' if incorrect
     if choice == "+":
@@ -188,4 +189,5 @@ print()
 print("******* Game Statistics *******")
 print ("Win {}, ({:.0f}%) \nLoss: {}, " "({:.0f}%)".format(correct_questions,percent_win,incorrect_questions,percent_lose))
 
+print()
 print("Thanks for playing", ask_name, "!")
